@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: azure;
+}
+
+body {
+    background-color: black;
+    overflow: hidden;
+}
+
+canvas {
+    display: block;
+}
+
+/*** Começando pelo HEADER ***/
+
+.header_body {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.header_sct_logo {
+    width: 15%;
+    display: flex;
+    justify-content: center;
+}
+
+.logo_div {
+    border: 2px solid rgb(255, 234, 0);
+    width: 75%;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.header_navbar {
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-link {
+    color: rgb(255, 225, 0);
+    text-shadow: 1px 1px 15px yellow;
+    transition: 1s;
+}
+
+.nav-link:hover {
+    color: rgb(197, 2, 2);
+    text-shadow: 1px 1px 15px rgb(255, 102, 0);
+    font-weight: 700;
+}
+
+.header_login {
+    width: 15%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
