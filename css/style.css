@@ -1,68 +1,276 @@
+/** Fontes **/
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/** Estilização geral **/
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Courier Prime","Montserrat", sans-serif;
 }
 
-a {
-    text-decoration: none;
-    color: azure;
-}
-
-body {
-    background-color: black;
-    overflow: hidden;
+a,p,h1,h2,h3 {
+  text-decoration: none;
+  color: azure;
 }
 
 canvas {
-    display: block;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/** Cores das linguagens **/
+
+.html,#linguagens .fa-html5:hover {
+  color: #E34F26;
+}
+
+.css,#linguagens .fa-css3-alt:hover {
+  color: #1572B6;
+}
+
+.bootstrap,#linguagens .fa-bootstrap:hover {
+  color: #7952B3;
+}
+
+.js,#linguagens .fa-square-js:hover {
+  color: #F7DF1E;
+}
+
+.php,#linguagens .fa-php:hover {
+  color: #777BB4;
+}
+
+.database,#linguagens .fa-database:hover {
+  color: rgb(0, 22, 190);
+}
+
+#sql {
+  display: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 900;
+  background-color: rgb(0, 22, 190);
+  color: azure;
+  border: 2px solid azure;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  padding: .4rem;
+  border-radius: 55%;
+  z-index: 100;
 }
 
 /*** Começando pelo HEADER ***/
-
-.header_body {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding-left: 25px;
-    padding-right: 25px;
+.header {
+  display: flex;
+  justify-content: center;
+  margin-top: 75px;
 }
 
-.header_sct_logo {
-    width: 15%;
-    display: flex;
-    justify-content: center;
+.header * {
+  display: flex;
+  align-items: center;
 }
 
-.logo_div {
-    border: 2px solid rgb(255, 234, 0);
-    width: 75%;
-    padding: 10px;
-    border-radius: 15px;
+#fotoPerfil {
+  width: 250px;
+  height: 250px;
+  justify-content: center;
+  background-image: url("../imagens/perfil.jpeg");
+  background-repeat: no-repeat;
+  background-size: 250px;
+  background-position: 1% 100%;
+  border-radius: 50%;
+  border: 1.5px solid azure;
+  transition: .3s;
 }
 
-.header_navbar {
-    width: 45%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#fotoPerfil:hover {
+  box-shadow: 0 0 5px 2px red;
+  border: rgb(98, 0, 0);
 }
 
-.nav-link {
-    color: rgb(255, 225, 0);
-    text-shadow: 1px 1px 15px yellow;
-    transition: 1s;
+#titulo_header {
+  display: inline-block;
 }
 
-.nav-link:hover {
-    color: rgb(197, 2, 2);
-    text-shadow: 1px 1px 15px rgb(255, 102, 0);
-    font-weight: 700;
+#texto_header {
+  display: flex;
+  justify-content: center;
+  margin-top: -15px;
 }
 
-.header_login {
-    width: 15%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+#texto_header {
+  font-size: xx-large;
+}
+
+#linguagens span i {
+  font-size: 50px;
+  margin: 0 .6rem .8rem;
+  transition: .2s;
+}
+
+#spn-db {
+  position: relative;
+}
+
+#contactos span a {
+  font-size: 50px;
+  margin: 0 .8rem;
+  transition: 0.2s;
+}
+
+#contactos span a:hover {
+  color: rgb(45, 7, 7);
+  text-shadow: 0 0 4px red;
+}
+/*** Estilizando corpo do site ***/
+
+#menu_main {
+  display: flex;
+  justify-content: center;
+}
+
+#menu_itens {
+  padding: .8rem;
+}
+
+#menu_itens p:hover {
+  cursor: pointer;
+  color: rgb(153, 0, 0);
+  text-shadow: 0 0 8px rgb(218, 4, 4);
+}
+
+#menu_itens ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+#menu_itens ul li {
+  font-size: 18px;
+  padding-left: 40px;
+  background-repeat: no-repeat;
+  background-size: 25px;
+  background-position: left center;
+  margin-bottom: 10px;
+}
+
+/*** Ícones individuais ***/
+#sobre {
+  background-image: url("../imagens/Assunto\ 2.png");
+}
+
+#portfolio {
+  background-image: url("../imagens/Assunto.png");
+}
+
+#experiencias {
+  background-image: url("../imagens/Assunto\ \(2\).png");
+}
+
+#educacao {
+  background-image: url("../imagens/Assunto\ \(1\).png");
+}
+
+#conteudo h2 {
+  font-size: 50px;
+  font-weight: 600;
+  text-indent: 45px;
+  transition: 0.5s;
+}
+
+#about_div,#contentPort,#exp,#edu-ca {
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 10px;
+  padding: .8rem;
+  margin: 10px 10px 20px;
+}
+
+#about_div ul li,#edu-ca ul li {
+  position: relative;
+  list-style: none;
+  padding: 2em 1.5em;
+  color: azure;
+}
+
+#about_div ul li::before,#edu-ca ul li::before {
+  content: '';
+  position: absolute;
+  left: -1.5em;
+  top: 2.3em;
+  width: 24px;
+  height: 24px;
+  background-image: url("../imagens/image-removebg-preview.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#about_div p {
+  text-indent: 10px;
+}
+
+#contentPort {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#contentPort #siteBep,#genEvents {
+  width: 35%;
+  height: 600px;
+}
+
+.card {
+  background-color: black;
+  padding: .6rem;
+  transition: 0.4s;
+}
+
+.card:hover {
+  box-shadow: 0 0 10px 1px white;
+  border: 1px solid rgba(255, 255, 255, 0.652);
+}
+
+.card img {
+  border-radius: 10px;
+  max-width: 100%;
+}
+
+.card img:hover {
+  box-shadow: 0 0 5px 1px grey;
+}
+
+.card-title {
+  color: white;
+  font-size: x-large;
+}
+
+#exp {
+  padding: 5%;
+  text-indent: 15px;
+}
+
+.classTitle {
+  color: rgb(45, 7, 7);
+  text-shadow: 0 0 3px red;
+}
+
+/***** RESPONSIVIDADE *****/
+@media (max-width: 576px) {
+  #linguagens span i {
+    font-size: 45px;
+    color: azure;
+  }
+
+  #contentPort {
+    flex-direction: column;
+  }
+
+  #contentPort #siteBep,#genEvents {
+    width: 100%;
+  }
 }
