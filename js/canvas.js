@@ -3,7 +3,8 @@ const ctx = canvas.getContext("2d");
 
 let stars = [];
 const numStars = 900;
-const speed = 3;
+const isMobile = window.innerWidth < 576;
+const speed = isMobile ? 0.8 : 3;
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
