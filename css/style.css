@@ -268,12 +268,16 @@ canvas {
 /***** RESPONSIVIDADE *****/
 @media (max-width: 576px) {
   #titulo_header h1,#texto_header p {
-    font-size: 2em;
+    font-size: 1.6em;
   }
 
   #linguagens span i {
-    font-size: 45px;
+    font-size: 40px;
     color: azure;
+  }
+
+  #contactos span a {
+    font-size: 40px;
   }
 
   #conteudo h2 {
