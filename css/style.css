@@ -98,14 +98,20 @@ canvas {
   display: inline-block;
 }
 
+#titulo_header h1 {
+  font-size: 55px;
+  font-weight: 600;
+}
+
 #texto_header {
   display: flex;
   justify-content: center;
   margin-top: -15px;
 }
 
-#texto_header {
-  font-size: xx-large;
+#texto_header p {
+  font-size: 40px;
+  font-weight: 600;
 }
 
 #linguagens span i {
@@ -261,9 +267,17 @@ canvas {
 
 /***** RESPONSIVIDADE *****/
 @media (max-width: 576px) {
+  #titulo_header h1,#texto_header p {
+    font-size: 2em;
+  }
+
   #linguagens span i {
     font-size: 45px;
     color: azure;
+  }
+
+  #conteudo h2 {
+    text-indent: 0;
   }
 
   #contentPort {
