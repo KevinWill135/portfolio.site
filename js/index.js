@@ -1,22 +1,59 @@
 class Conteudo {
-    constructor(id, dynamicTag) {
-        this.id = id
-        this.dynamicTag = dynamicTag
-    }
+  constructor(id, dynamicTag) {
+    this.id = id;
+    this.dynamicTag = dynamicTag;
+  }
 
-    adicionarTexto(tag) {
-        const div = $('#conteudo')
-        let conteudo = tag
-        div.html('')
-        div.append(conteudo)
-    }
+  adicionarTexto(tag) {
+    const div = $("#conteudo");
+    let conteudo = tag;
+    div.html("");
+    div.append(conteudo);
+  }
 
-    addConteudo() {
-        $(`${this.id}`).on('click', () => {
-            this.adicionarTexto(this.dynamicTag)
-            $('#conteudo div').focus()
-        })
-    }
+  addConteudo() {
+    $(`${this.id}`).on("click", () => {
+      this.adicionarTexto(this.dynamicTag);
+      $("#conteudo div").focus();
+      this.pedidoJson();
+    });
+  }
+
+  pedidoJson() {
+    fetch("js/projetos.json")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Falha na conexão com a API JSON");
+        }
+        return response.json();
+      })
+      .then((projetos) => {
+        console.log(projetos);
+        const contentPort = $("#contentPort");
+        projetos.forEach((projeto) => {
+          let linguagens = projeto.linguagens;
+          let linguagem = linguagens.join(" ");
+
+          const site = `
+                  <div id="siteBep">
+                      <div class="card">
+                          <a href="${projeto.link}" target="_blank" rel="noopener noreferrer">
+                          <img src="${projeto.image}" alt="${projeto.name}">
+                          </a>
+                          <div class="card-body">
+                              <span class="card-title">
+                                  ${linguagem}
+                              </span>
+                              <p class="card-text">Site criado como projeto do curso profissional. Proposta do projeto era criar um site para banda/artista favorito utilizando html/css, bootstrap e um pouco de JavaScript para colocar em prática o que foi ensinado até aquele momento. Deploy com GitHub Pages.</p>
+                              <a href="${projeto.link}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-danger">Visitar Site</a>
+                          </div>
+                      </div>
+                  </div>
+              `;
+          contentPort.append(site);
+        });
+      });
+  }
 }
 
 //Conteúdo adicionado para Sobre
@@ -50,50 +87,15 @@ let txtSobre = `
             </li>
         </ul>
     </div>
-`
+`;
 
 //Conteúdo adicionado para Portfólio
 let sites = `
     <h2>Portfólio</h2>
     <div id="contentPort" tabindex="0">
-        <div id="siteBep">
-            <div class="card">
-                <a href="https://kevinwill135.github.io/site_bep.p/" target="_blank" rel="noopener noreferrer">
-                <img src="imagens/site-bep.jpg" alt="Site B.E.P">
-                </a>
-                <div class="card-body">
-                <span class="card-title">
-                    <i class="fa-brands fa-html5 html"></i>
-                    <i class="fa-brands fa-css3-alt css"></i>
-                    <i class="fa-brands fa-bootstrap bootstrap"></i>
-                    <i class="fa-brands fa-square-js js"></i>
-                </span>
-                <p class="card-text">Site criado como projeto do curso profissional. Proposta do projeto era criar um site para banda/artista favorito utilizando html/css, bootstrap e um pouco de JavaScript para colocar em prática o que foi ensinado até aquele momento. Deploy com GitHub Pages.</p>
-                <a href="https://kevinwill135.github.io/site_bep.p/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-danger">Visitar Site</a>
-                </div>
-            </div>
-        </div>
-        <div id="genEvents">
-            <div class="card">
-                <a href="https://genevents.great-site.net/" target="_blank" rel="noopener noreferrer">
-                <img src="imagens/genevents.jpg" alt="Site GenEvents">
-                </a>
-                <div class="card-body">
-                <span class="card-title">
-                    <i class="fa-brands fa-html5 html"></i>
-                    <i class="fa-brands fa-css3-alt css"></i>
-                    <i class="fa-brands fa-bootstrap bootstrap"></i>
-                    <i class="fa-brands fa-square-js js"></i>
-                    <i class="fa-brands fa-php php"></i>
-                    <i class="fa-solid fa-database database"></i>
-                </span>
-                <p class="card-text">Projeto final do curso, proposta era criar um site de gerenciamento de eventos com carrinho, páginas dinâmicas para os eventos, local para administração do site, criação e manutenção de perfil, etc. Deploy com infinityFree.</p>
-                <a href="https://genevents.great-site.net/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-danger">Visitar Site</a>
-                </div>
-            </div>
-        </div>
+        
    </div>
-`
+`;
 
 //Conteúdo adicionado para Experiências
 let txtExperiencia = `
@@ -102,7 +104,7 @@ let txtExperiencia = `
         <p>Ainda com pouca experiência formal, busco uma oportunidade para crescer junto à empresa, contribuindo com dedicação e aprendendo continuamente. Acredito que o aprendizado é um processo constante — até o fim da vida temos algo a absorver e a oferecer. Estou disposto a vestir a camisola da empresa e ir além de ser apenas mais um colaborador. Um dos meus princípios é justamente esse: não passar despercebido, mas sim fazer a diferença onde estiver.</p>
         <p>Enquanto procuro uma vaga em uma empresa responsável, comprometida com seus projetos e com a satisfação dos seus clientes, também sigo em busca de novos desafios e projetos que me permitam expandir meu conhecimento e fortalecer meu portfólio. Agora que finalizei meu curso profissional, meu objetivo é iniciar no mercado de trabalho o quanto antes e transformar todo o conhecimento adquirido em prática e resultados concretos.</p>
     </div>
-`
+`;
 
 //Conteúdo adicionado para Educação
 let txtEducacao = `
@@ -127,49 +129,16 @@ let txtEducacao = `
             </li>
         </ul>
     </div>
-`
+`;
 
-const sobre = new Conteudo('#sobre', txtSobre)
-const portfolio = new Conteudo('#portfolio', sites)
-const experiencia = new Conteudo('#experiencias', txtExperiencia)
-const educacao = new Conteudo('#educacao', txtEducacao)
+const sobre = new Conteudo("#sobre", txtSobre);
+const portfolio = new Conteudo("#portfolio", sites);
+const experiencia = new Conteudo("#experiencias", txtExperiencia);
+const educacao = new Conteudo("#educacao", txtEducacao);
 
 $(document).ready(function () {
-    sobre.addConteudo()
-    portfolio.addConteudo()
-    experiencia.addConteudo()
-    educacao.addConteudo()
-
-    //Animando um pouco o site
-    $("#fotoPerfil").hover(
-        function() {
-            $("#titulo_header h1,#texto_header p").addClass("classTitle")
-        },
-        function() {
-            $("#titulo_header h1,#texto_header p").removeClass("classTitle")
-        }
-    )
-
-    $("#conteudo").on('mouseover', 'div',
-        function() {
-            $("#conteudo h2").addClass("classTitle")
-        }
-    )
-
-    $("#conteudo").on('mouseout', 'div',
-        function() {
-            $("#conteudo h2").removeClass("classTitle")
-        }
-    )
-
-    $('#db').hover(
-        function() {
-            $('#sql').slideDown('slow')
-        },
-        function() {
-            $('#sql').fadeOut('slow', function() {
-                console.log('A caixa desapareceu')
-            })
-        }
-    )
-})
+  sobre.addConteudo();
+  portfolio.addConteudo();
+  experiencia.addConteudo();
+  educacao.addConteudo();
+});

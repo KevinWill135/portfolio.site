@@ -1,0 +1,28 @@
+[
+  {
+    "name": "Site B.E.P",
+    "image": "imagens/site-bep.jpg",
+    "linguagens": [
+      "<i class='fa-brands fa-html5 html'></i>",
+      "<i class='fa-brands fa-css3-alt css'></i>",
+      "<i class='fa-brands fa-bootstrap bootstrap'></i>",
+      "<i class='fa-brands fa-square-js js'></i>"
+    ],
+    "description": "Site criado como projeto do curso profissional. Proposta do projeto era criar um site para banda/artista favorito utilizando html/css, bootstrap e um pouco de JavaScript para colocar em prática o que foi ensinado até aquele momento. Deploy com GitHub Pages.",
+    "link": "https://kevinwill135.github.io/site_bep.p/"
+  },
+  {
+    "name": "GenEvents",
+    "image": "imagens/genevents.jpg",
+    "linguagens": [
+      "<i class='fa-brands fa-html5 html'></i>",
+      "<i class='fa-brands fa-css3-alt css'></i>",
+      "<i class='fa-brands fa-bootstrap bootstrap'></i>",
+      "<i class='fa-brands fa-square-js js'></i>",
+      "<i class='fa-brands fa-php php'></i>",
+      "<i class='fa-solid fa-database database'></i>"
+    ],
+    "description": "Projeto final do curso, proposta era criar um site de gerenciamento de eventos com carrinho, páginas dinâmicas para os eventos, local para administração do site, criação e manutenção de perfil, etc. Deploy com infinityFree.",
+    "link": "https://genevents.great-site.net/"
+  }
+]
