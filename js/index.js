@@ -15,7 +15,10 @@ class Conteudo {
     $(`${this.id}`).on("click", () => {
       this.adicionarTexto(this.dynamicTag);
       $("#conteudo div").focus();
-      this.pedidoJson();
+
+      if (this.id == "#portfolio") {
+        this.pedidoJson();
+      }
     });
   }
 
@@ -35,7 +38,7 @@ class Conteudo {
           let linguagem = linguagens.join(" ");
 
           const site = `
-                  <div id="siteBep">
+                  <div class="sitePort">
                       <div class="card">
                           <a href="${projeto.link}" target="_blank" rel="noopener noreferrer">
                           <img src="${projeto.image}" alt="${projeto.name}">
